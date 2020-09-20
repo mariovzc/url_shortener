@@ -14,3 +14,19 @@ get '/' do
   {status:'ok'}.to_json
 end
 
+
+post '/url_shortener' do
+  params = JSON.parse request.body.read
+
+  url = params['url']
+
+  url_shortener = Link.new(url: url)
+
+  if url_shortener.save
+    url_shortener.to_json
+  else
+    status 400
+    body url_shortener.errors.to_json
+  end
+
+end

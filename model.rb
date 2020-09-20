@@ -31,4 +31,5 @@ class Link
     self.slug = SecureRandom.uuid[0..5] if self.slug.nil? || self.slug.empty?
     true
   end
+
 end
