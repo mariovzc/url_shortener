@@ -37,4 +37,14 @@ class Link
     self.clicked = self.clicked + 1
     self.save
   end
+
+  def to_json
+    #require 'pry'; binding.pry
+    {
+      clicked: self.clicked,
+      slug: self.slug,
+      url: self.url,
+      id: self.id.to_str
+    }
+  end
 end
