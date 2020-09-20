@@ -6,10 +6,11 @@ class Link
 
   field :url, type: String
   field :slug, type: String
-  field :clicked, type: Integer
+  field :clicked, type: Integer, default: 0
 
   validates :url, 
             presence: true, 
+            uniqueness: true,
             format: URI::regexp(%w[http https]), 
             length: {
               in: 3..255,
@@ -32,4 +33,8 @@ class Link
     true
   end
 
+  def set_clicked
+    self.clicked = self.clicked + 1
+    self.save
+  end
 end
