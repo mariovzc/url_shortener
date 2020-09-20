@@ -1,5 +1,6 @@
 require 'sinatra'
 require 'json'
+require './model.rb'
 
 set :port, 8000
 set :bind, '0.0.0.0'
@@ -10,10 +11,6 @@ before do
 end
 
 get '/' do
-  {status:'ok'}
+  {status:'ok'}.to_json
 end
 
-
-after do
-  response.body = JSON.dump(response.body)
-end

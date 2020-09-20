@@ -1,0 +1,13 @@
+default: &default
+  clients: 
+    default:
+      uri: mongodb://u83rsb6qlhznt0bjlatm:btkMBZ3b0VMwpOwc35hk@bu7hqjadhabj7zf-mongodb.services.clever-cloud.com:27017/bu7hqjadhabj7zf
+      options:
+        server_selection_timeout: 5
+
+
+development:
+  <<: *default
+
+production:
+  <<: *default
